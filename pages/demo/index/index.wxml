@@ -1,0 +1,76 @@
+<import src="../../../wxParse/myTemplate.wxml" />
+
+<cu-custom bgColor="bg-gradual-pink" isBack="{{true}}">
+    <view slot="backText">返回</view>
+    <view slot="content">列表</view>
+</cu-custom>
+
+<search-bar id="searchBar" placeholder="请输入..." bind:inputCall="inputCall" data-no="110"></search-bar>
+
+<view class="cu-list grid col-5 no-border">
+    <view class="cu-item">
+        <view class="cuIcon-cardboardfill text-red">
+        </view>
+        <text>VR</text>
+    </view>
+    <view class="cu-item">
+        <view class="cuIcon-upstagefill text-cyan">
+        </view>
+        <text>排行榜</text>
+    </view>
+    <view class="cu-item">
+        <view class="cuIcon-discoverfill text-purple">
+        </view>
+        <text>发现</text>
+    </view>
+    <view class="cu-item">
+        <view class="cuIcon-questionfill text-mauve">
+        </view>
+        <text>帮助</text>
+    </view>
+    <view class="cu-item">
+        <view class="cuIcon-noticefill text-olive">
+        </view>
+        <text>通知</text>
+    </view>
+</view>
+<!--<view class="padding-lr bg-white margin-top">
+    <audio poster="http://q8nvap5f2.bkt.clouddn.com//album/%E7%8E%8B%E7%90%AA.jpg" name="为你放弃全世界" author="王琪" src="http://q8o7chb0h.bkt.clouddn.com/%E4%B8%BA%E4%BD%A0%E6%94%BE%E5%BC%83%E5%85%A8%E4%B8%96%E7%95%8C.mp3" id="myAudio" controls loop></audio>
+</view>-->
+
+<view class="cu-bar bg-white solid-bottom margin-top">
+    <view class="action">
+        <text class="cuIcon-title text-orange "></text> 菜单列表
+    </view>
+</view>
+
+<view class="cu-list menu sm-border">
+    <view class="cu-item arrow" bindtap="onChooseLocation">
+        <view class="content">
+            <text class="cuIcon-location text-grey"></text>
+            <text class="text-grey">定位</text>
+        </view>
+    </view>
+    <view class="cu-item arrow">
+        <view class="content">
+            <text class="cuIcon-circlefill text-grey"></text>
+            <text class="text-grey">图标 + 标题</text>
+        </view>
+    </view>
+    <view class="cu-item arrow">
+        <view class="content">
+            <text class="cuIcon-circlefill text-grey"></text>
+            <text class="text-grey">图标 + 标题</text>
+        </view>
+    </view>
+    <view class="cu-item arrow">
+        <view class="content">
+            <text class="cuIcon-circlefill text-grey"></text>
+            <text class="text-grey">图标 + 标题</text>
+        </view>
+    </view>
+    <template is="msgItem" data="{{msgList:['菜单1','菜单2','菜单3']}}"/>
+</view>
+
+
+

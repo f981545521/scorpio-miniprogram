@@ -1,0 +1,71 @@
+<view class="container">
+    <!-- 搜索框 -->
+    <view class="index-search-box">
+        <navigator class="index-search " hover-class="none" openType="navigate" url="../search/index">
+            <view class="index-cont-search t-c">
+                <icon class="text-center" color="{{searchColor}}" size="{{searchSize}}" type="search"></icon>
+                <text>{{searchName}}</text>
+            </view>
+        </navigator>
+    </view>
+    <view class="cate-content dis-flex">
+        <!-- 左侧 一级分类 -->
+        <scroll-view class="cate-left f-28" scroll-y="{{ true }}" style="height: {{ scrollHeight }}px; ">
+            <text bindtap="selectNav" class="type-nav onelist-hidden selected" data-id="101" data-index="1">手机数码</text>
+            <text bindtap="selectNav" class="type-nav onelist-hidden" data-id="101" data-index="2">家用电器</text>
+        </scroll-view>
+
+        <!-- 右侧 二级分类 -->
+        <scroll-view class="cate-right b-f" scroll-top="{{ scrollTop }}" scroll-y="true"
+                     style="height: {{ scrollHeight }}px; ">
+            <view>
+                <view class="cate-right-cont">
+                    <view class="cate-two-box">
+                        <view class="cate-cont-box">
+                            <view class="flex-three" data-list="1">
+                                <navigator hover-class="none" url="../category/list?category_id=1">
+                                    <view class="cate-img" id="101">
+                                        <image src="http://q8nvap5f2.bkt.clouddn.com/product/TB2bi0Ub_SPY1J.jpg"></image>
+                                    </view>
+                                    <text class="onelist-hidden">小米</text>
+                                </navigator>
+                            </view>
+                            <view class="flex-three" data-list="1">
+                                <navigator hover-class="none" url="../category/list?category_id=1">
+                                    <view class="cate-img" id="101">
+                                        <image src="http://q8nvap5f2.bkt.clouddn.com/product/TB2bi0Ub_SPY1J.jpg"></image>
+                                    </view>
+                                    <text class="onelist-hidden">小米</text>
+                                </navigator>
+                            </view>
+                            <view class="flex-three" data-list="1">
+                                <navigator hover-class="none" url="../category/list?category_id=1">
+                                    <view class="cate-img" id="101">
+                                        <image src="http://q8nvap5f2.bkt.clouddn.com/product/TB2bi0Ub_SPY1J.jpg"></image>
+                                    </view>
+                                    <text class="onelist-hidden">小米</text>
+                                </navigator>
+                            </view>
+                            <view class="flex-three" data-list="1">
+                                <navigator hover-class="none" url="../category/list?category_id=1">
+                                    <view class="cate-img" id="101">
+                                        <image src="http://q8nvap5f2.bkt.clouddn.com/product/TB2bi0Ub_SPY1J.jpg"></image>
+                                    </view>
+                                    <text class="onelist-hidden">小米</text>
+                                </navigator>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </scroll-view>
+    </view>
+
+    <!-- <view>
+    <view class="yoshop-notcont">
+      <text class="iconfont icon-wushuju"></text>
+      <text class="cont">亲，暂无商品分类哦</text>
+    </view>
+  </view> -->
+
+</view>

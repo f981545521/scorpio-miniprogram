@@ -1,0 +1,10 @@
+<view class="container">
+  <view class="help cont-box b-f">
+    <view>
+      <text class="h4">关于我</text>
+    </view>
+    <view>
+      <text class="p">我是一个小程序</text>
+    </view>
+  </view>
+</view>

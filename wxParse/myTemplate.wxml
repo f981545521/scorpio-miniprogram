@@ -1,0 +1,16 @@
+<!--
+    WXML提供模板（template），可以在模板中定义代码片段，然后在不同的地方调用。
+
+    自定义模板的使用：
+    <import src="../../../wxParse/myTemplate.wxml" />
+    <template is="msgItem" data="{{msgList:['菜单1','菜单2','菜单3']}}"/>
+-->
+
+<template name="msgItem">
+    <view class="cu-item arrow" wx:for="{{msgList}}" wx:key="this">
+        <view class="content">
+            <text class="cuIcon-circlefill text-grey"></text>
+            <text class="text-grey">{{item}}</text>
+        </view>
+    </view>
+</template>

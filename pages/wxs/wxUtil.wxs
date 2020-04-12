@@ -1,0 +1,35 @@
+/**
+ * 参考：https://developers.weixin.qq.com/miniprogram/dev/reference/wxs/01wxs-module.html
+ *
+ * 使用教程：
+ * 1. 在wxml中增加：<wxs module="wxUtil" src="../../../wxs/wxUtil.wxs"></wxs>
+ * 2. 表达式中使用：{{wxUtil.toFix(item.price)}}
+ *
+ * @type {{checkNull: wxUtil.checkNull, toFix: (function(*): string), limitLength: wxUtil.limitLength}}
+ */
+
+var wxUtil = {
+    //固定位数
+    toFix: function (value) {
+        return value.toFixed(2)//此处2为保留两位小数
+    },
+    //限制长度
+    limitLength: function (length) {
+        if (val.length > length) {
+            return val.substring(0, length) + "...";
+        } else {
+            return val;
+        }
+    },
+    //避免显示null值
+    checkNull:function(val){
+      if(!val){
+        val = "";
+      }
+    }
+
+};
+module.exports = {
+    toFix: wxUtil.toFix,
+    limitLength: wxUtil.limitLength
+};
