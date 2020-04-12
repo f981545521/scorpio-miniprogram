@@ -1,4 +1,4 @@
-let app = getApp();
+let App = getApp();
 
 Page({
 
@@ -6,21 +6,50 @@ Page({
      * 页面的初始数据
      */
     data: {
-
+       itemPage: {}
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad: function (options) {
-
+        let _this = this;
+        wx.getSystemInfo({
+            success: e => {
+                console.log("getSystemInfo");
+                console.log(e);
+            }
+        });
+        _this.getItemList(1);
     },
-
+    getItemList: function(pageNum){
+        let totalPage = 10;
+        let _this = this;
+        var params = {pageNum:pageNum, pageSize:5};
+        let hasNextPage = true;
+        if (pageNum == totalPage){
+            hasNextPage = false;
+        }
+        App.setPageData(_this, "itemPage", {
+            data: {
+                pageNum: params.pageNum,
+                pageSize: params.pageSize,
+                total: totalPage * params.pageSize,
+                list: [1, 2, 3, 4, 5],
+                hasNextPage: hasNextPage
+            }
+        });
+    },
     /**
      * 生命周期函数--监听页面初次渲染完成
      */
     onReady: function () {
-
+        /**
+         * 父组件还可以通过 this.selectComponent 方法获取子组件实例对象，这样就可以直接访问组件的任意数据和方法。
+         */
+        let searchBar = this.selectComponent("#searchBar");
+        let opt = searchBar.data.opt;
+        console.log("OPT:" + opt)
     },
 
     /**
@@ -55,14 +84,20 @@ Page({
      * 页面上拉触底事件的处理函数
      */
     onReachBottom: function () {
-
+        console.log("到底了，加载更多...");
+        var _this = this;
+        App.reachBottomLoadMore(_this, "itemPage", _this.getItemList);
     },
 
     /**
      * 用户点击右上角分享
      */
     onShareAppMessage: function () {
-
+        return {
+            title: "小程序标题",
+            imageUrl: "http://q8nvap5f2.bkt.clouddn.com/product/TB2bi0Ub_SPY1J.jpg",
+            path: "/pages/category/index"
+        };
     },
 
     /**

@@ -70,6 +70,17 @@
         </view>
     </view>
     <template is="msgItem" data="{{msgList:['菜单1','菜单2','菜单3']}}"/>
+
+    <view class="cu-item arrow" wx:for="{{itemPage.list}}" wx:key="k">
+        <view class="content">
+            <text class="cuIcon-circlefill text-grey"></text>
+            <text class="text-grey">千里之外</text>
+        </view>
+    </view>
+
+    <!-- 底线 -->
+    <view class="cu-load {{itemPage.hasNextPage || !itemPage.pageNum?'loading':'over'}}"></view>
+
 </view>
 
 

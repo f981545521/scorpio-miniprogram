@@ -314,4 +314,40 @@ App({
         return tabBarLinks;
     },
 
+    /**
+     * 设置分页数据
+     * @param _this
+     * @param page
+     * @param result
+     */
+    setPageData(_this, page, result){
+        if (_this.data[page].pageNum){
+            _this.setData({
+                [page]: {
+                    pageNum: result.data.pageNum,
+                    pageSize: result.data.pageSize,
+                    total: result.data.total,
+                    list: _this.data[page].list.concat(result.data.list),
+                    hasNextPage: result.data.hasNextPage,
+                    extData: result.data.extData
+                }
+            })
+        } else {
+            _this.setData({
+                [page]: result.data
+            })
+        }
+    },
+    /**
+     * 分页加载更多
+     * @param _this
+     * @param page
+     * @param result
+     */
+    reachBottomLoadMore: function (_this, page, callback) {
+        if (_this.data[page] && _this.data[page].hasNextPage) {
+            callback(_this.data[page].pageNum + 1);
+        }
+    }
+
 });
