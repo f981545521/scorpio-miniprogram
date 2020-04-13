@@ -1,5 +1,5 @@
-// 站点信息
 let env = require('./utils/env_config.js');
+let util = require('./utils/util.js');
 let QQMapWX = require('./utils/lib/map/qqmap-wx-jssdk.js');
 
 /**
@@ -47,10 +47,17 @@ App({
             key: 'RQIBZ-PP4RR-FT5W6-W3UG7-6NB5Z-P3BXB'
         });
         //获取当前位置
+        this.loadAddress();
         App.getLocationInfoPromise().then(addressRes => {
             console.log("程序初始化完成", addressRes)
         });
 
+    },
+
+    loadAddress(){
+        let a = util.checkGetLocationAddress();
+        //此方法中发生异常，会影响此方法继续执行，不会影响调用方法执行
+        console.log("ok啦！")
     },
 
     getLocationInfoPromise(){

@@ -88,11 +88,60 @@ function showError(msg, callback) {
     });
 }
 
+function showLoading(){
+    wx.showLoading();
+}
+function hideLoading(){
+    wx.hideLoading();
+}
+
+function checkGetLocationAddress(){
+    let locationAddress = wx.getStorageSync("locationAddress");
+    //有缓存并且不是重新定位请求直接返回
+    if (locationAddress){
+        return locationAddress;
+    } else {
+        showToast("获取位置中，请稍后...");
+        reLocationAddress(function (result) {
+            showToast("获取位置成功！");
+        });
+        throw new Error("获取位置中");
+    }
+}
+function reLocationAddress(reLocationCall){
+    //获取当前位置
+    wx.getLocation({
+        type: 'gcj02',
+        success: function (res) {
+            //逆地址编码
+            getApp().qqmapsdk.reverseGeocoder({
+                location: {
+                    latitude: res.latitude,
+                    longitude: res.longitude
+                },
+                success: function (addressRes) {
+                    if (addressRes.status == 0) {
+                        wx.setStorageSync('locationAddress', addressRes.result);
+                        var address = addressRes.result.formatted_addresses.recommend;
+                        reLocationCall(addressRes.result);
+                    }
+                }
+            })
+        },
+    })
+}
+
+function getAddress(){
+    throw new Error("获取位置失败")
+}
 module.exports = {
     formatTime: formatTime,
     getBeforeDate: getBeforeDate,
-    getUserInfoBystorage: getUserInfoBystorage,
     getUserId: getUserId,
     showToast: showToast,
     showError: showError,
+    showLoading: showLoading,
+    hideLoading: hideLoading,
+    checkGetLocationAddress: checkGetLocationAddress,
+    reLocationAddress: reLocationAddress
 };
