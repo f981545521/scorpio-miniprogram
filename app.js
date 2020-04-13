@@ -47,21 +47,33 @@ App({
             key: 'RQIBZ-PP4RR-FT5W6-W3UG7-6NB5Z-P3BXB'
         });
         //获取当前位置
-        wx.getLocation({
-            type: 'gcj02',
-            success: function (res) {
-                //逆地址编码
-                App.qqmapsdk.reverseGeocoder({
-                    location: {
-                        latitude: res.latitude,
-                        longitude: res.longitude
-                    },
-                    success: function (addressRes) {
-                        console.log(addressRes);
-                    }
-                })
-            },
-        })
+        App.getLocationInfoPromise().then(addressRes => {
+            console.log("程序初始化完成", addressRes)
+        });
+
+    },
+
+    getLocationInfoPromise(){
+        let App = this;
+        return new Promise((resolve, reject) => {
+            wx.getLocation({
+                type: 'gcj02',
+                success: function (res) {
+                    console.log("获取当前位置", res);
+                    //逆地址编码
+                    App.qqmapsdk.reverseGeocoder({
+                        location: {
+                            latitude: res.latitude,
+                            longitude: res.longitude
+                        },
+                        success: function (addressRes) {
+                            console.log("逆地址编码完成", res);
+                            resolve(addressRes);
+                        }
+                    })
+                },
+            });
+        });
     },
 
     /**     生命周期回调——监听小程序启动或切前台。*/
