@@ -1,7 +1,4 @@
 let App = getApp();
-var env = require('../../utils/env_config.js');
-var util = require('../../utils/util.js');
-var network = require('../../utils/network.js');
 
 Page({
 
@@ -40,7 +37,7 @@ Page({
     },
     loginOut: function () {
         wx.clearStorageSync();
-        util.showToast("退出成功！");
+        App.util.showToast("退出成功！");
         wx.navigateTo({
             url: '/pages/author/author',
         });

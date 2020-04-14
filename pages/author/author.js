@@ -1,6 +1,4 @@
-// pages/author/author.js
-const network = require('../../utils/network.js')
-
+let App = getApp();
 Page({
 
     /**
@@ -125,8 +123,8 @@ Page({
                             console.log("调用失败")
                         },
 
-                    }
-                    network.POST(requestHandler)
+                    };
+                    App.network.POST(requestHandler)
 
                 } else {
                     wx.hideLoading();

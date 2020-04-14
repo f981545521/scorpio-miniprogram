@@ -1,7 +1,4 @@
 let App = getApp();
-var env = require('../../utils/env_config.js');
-var util = require('../../utils/util.js');
-var network = require('../../utils/network.js');
 
 Page({
     data: {

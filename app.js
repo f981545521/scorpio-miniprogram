@@ -1,5 +1,6 @@
 let env = require('./utils/env_config.js');
 let util = require('./utils/util.js');
+let network = require('./utils/network.js');
 let QQMapWX = require('./utils/lib/map/qqmap-wx-jssdk.js');
 
 /**
@@ -29,6 +30,13 @@ App({
      */
     onLaunch() {
         let App = this;
+        App.network = network;
+        App.util = util;
+        // 实例化API核心类
+        App.qqmapsdk = new QQMapWX({
+            key: 'RQIBZ-PP4RR-FT5W6-W3UG7-6NB5Z-P3BXB'
+        });
+
         wx.getSystemInfo({
             success: e => {
                 this.globalData.StatusBar = e.statusBarHeight;
@@ -42,16 +50,12 @@ App({
             }
         });
 
-        // 实例化API核心类
-        App.qqmapsdk = new QQMapWX({
-            key: 'RQIBZ-PP4RR-FT5W6-W3UG7-6NB5Z-P3BXB'
-        });
+
         //获取当前位置
         this.loadAddress();
         App.getLocationInfoPromise().then(addressRes => {
             console.log("程序初始化完成", addressRes)
         });
-
     },
 
     loadAddress(){
