@@ -4,6 +4,9 @@
     自定义模板的使用：
     <import src="../../../wxParse/myTemplate.wxml" />
     <template is="msgItem" data="{{msgList:['菜单1','菜单2','菜单3']}}"/>
+
+    data中传入参数，都要写在data中。
+    <template is="bottom" data="{{pageData:nearbyGroupPage, noDataMsg:'没有订单数据'}}"></template>
 -->
 
 <template name="msgItem">
