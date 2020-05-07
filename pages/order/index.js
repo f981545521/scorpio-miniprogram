@@ -92,7 +92,7 @@ Page({
         wx.showLoading({title: '正在处理...',});
         App._post_form('user.order/pay', {order_id}, function (result) {
             if (result.code === -10) {
-                App.showError(result.msg);
+                App.util.showError(result.msg);
                 return false;
             }
             // 发起微信支付
@@ -109,7 +109,7 @@ Page({
                     });
                 },
                 fail: function () {
-                    App.showError('订单未支付');
+                    App.util.showError('订单未支付');
                 },
             });
         });

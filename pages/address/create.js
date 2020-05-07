@@ -37,7 +37,7 @@ Page({
 
         // 表单验证
         if (!_this.validation(values)) {
-            App.showError(_this.data.error);
+            App.util.showError(_this.data.error);
             return false;
         }
 
@@ -48,7 +48,7 @@ Page({
 
         // 提交到后端
         App._post_form('address/add', values, function (result) {
-            App.showSuccess(result.msg, function () {
+            App.util.showSuccess(result.msg, function () {
                 wx.navigateBack();
             });
         }, false, function () {

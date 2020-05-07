@@ -134,11 +134,28 @@ function reLocationAddress(reLocationCall){
 function getAddress(){
     throw new Error("获取位置失败")
 }
+
+/**
+ * 显示成功提示框
+ */
+function showSuccess(msg, callback) {
+    wx.showToast({
+        title: msg,
+        icon: 'success',
+        success() {
+            callback && (setTimeout(() => {
+                callback();
+            }, 1500));
+        }
+    });
+}
+
 module.exports = {
     formatTime: formatTime,
     getBeforeDate: getBeforeDate,
     getUserId: getUserId,
     showToast: showToast,
+    showSuccess: showSuccess,
     showError: showError,
     showLoading: showLoading,
     hideLoading: hideLoading,
