@@ -81,6 +81,25 @@ App({
                         }
                     })
                 },
+                fail(res) {
+                    if (res.errMsg === "getLocation:fail auth deny"){
+                        wx.showModal({
+                            title: '提示',
+                            content: '您拒绝了获取位置请求，请重新授权！',
+                            success (res) {
+                                if (res.confirm) {
+                                    wx.openSetting({
+                                        success (res) {
+                                            console.log(res)
+                                        }
+                                    })
+                                } else if (res.cancel) {
+                                    console.log('您拒绝了授权。')
+                                }
+                            }
+                        })
+                    }
+                }
             });
         });
     },
