@@ -62,6 +62,7 @@ Page({
         ],
 
         scrollTop: 0,
+        test: "init test"
     },
 
     onLoad: function () {
@@ -69,6 +70,13 @@ Page({
         App.setNavigationBar();
         // 获取首页数据
         this.getIndexData();
+
+        // 调用监听器，监听数据变化
+        App.watch(this, {
+            test: function (newVal) {
+                console.log(newVal)
+            }
+        })
     },
 
     /**
@@ -77,7 +85,11 @@ Page({
     getIndexData: function () {
         let _this = this;
 
-
+        setTimeout(function () {
+            _this.setData({
+                test: "after test"
+            })
+        }, 5000)
     },
 
     /**

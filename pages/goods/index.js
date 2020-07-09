@@ -217,12 +217,7 @@ Page({
         if (submitType === 'buyNow') {
             // 立即购买
             wx.navigateTo({
-                url: '../flow/checkout?' + App.urlEncode({
-                    order_type: 'buyNow',
-                    goods_id: _this.data.goods_id,
-                    goods_num: _this.data.goods_num,
-                    goods_sku_id: _this.data.goods_sku_id,
-                })
+                url: '../flow/checkout?xxx'
             });
         } else if (submitType === 'addCart') {
             // 加入购物车
@@ -231,7 +226,7 @@ Page({
                 goods_num: _this.data.goods_num,
                 goods_sku_id: _this.data.goods_sku_id,
             }, function (result) {
-                App.showSuccess(result.msg);
+                App.util.showSuccess(result.msg);
                 _this.setData(result.data);
             });
         }

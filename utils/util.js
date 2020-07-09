@@ -95,6 +95,25 @@ function hideLoading(){
     wx.hideLoading();
 }
 
+/**
+ * 		if (res.authSetting['scope.userLocation'] === false) {
+ *			showToast("您拒绝了授权，无法获取你的位置！");
+ *		}
+ * @param code
+ * @returns {boolean}
+ */
+function checkSetting(code) {
+    wx.getSetting({
+        success(res) {
+            if (res.authSetting[code] === true) {
+                return true;
+            }else {
+                return false;
+            }
+        }
+    });
+}
+
 function checkGetLocationAddress(){
     let locationAddress = wx.getStorageSync("locationAddress");
     //有缓存并且不是重新定位请求直接返回
@@ -128,17 +147,39 @@ function reLocationAddress(reLocationCall){
                 }
             })
         },
+        fail(res) {
+            if (res.errMsg === "getLocation:fail auth deny"){
+                showToast('无法获取您的位置，请重新授权。')
+            }
+        }
     })
 }
 
 function getAddress(){
     throw new Error("获取位置失败")
 }
+
+/**
+ * 显示成功提示框
+ */
+function showSuccess(msg, callback) {
+    wx.showToast({
+        title: msg,
+        icon: 'success',
+        success() {
+            callback && (setTimeout(() => {
+                callback();
+            }, 1500));
+        }
+    });
+}
+
 module.exports = {
     formatTime: formatTime,
     getBeforeDate: getBeforeDate,
     getUserId: getUserId,
     showToast: showToast,
+    showSuccess: showSuccess,
     showError: showError,
     showLoading: showLoading,
     hideLoading: hideLoading,

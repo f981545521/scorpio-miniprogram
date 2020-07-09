@@ -46,14 +46,14 @@ Page({
         // 获取订单信息回调方法
         let callback = function (result) {
             if (result.code !== 1) {
-                App.showError(result.msg);
+                App.util.showError(result.msg);
                 return false;
             }
             // 显示错误信息
             if (result.data.has_error) {
                 _this.data.hasError = true;
                 _this.data.error = result.data.error_msg;
-                App.showError(_this.data.error);
+                App.util.showError(_this.data.error);
             }
             _this.setData(result.data);
         };
@@ -99,14 +99,14 @@ Page({
         }
 
         if (_this.data.hasError) {
-            App.showError(_this.data.error);
+            App.util.showError(_this.data.error);
             return false;
         }
 
         // 订单创建成功后回调--微信支付
         let callback = function (result) {
             if (result.code === -10) {
-                App.showError(result.msg, function () {
+                App.util.showError(result.msg, function () {
                     // 跳转到未付款订单
                     wx.redirectTo({
                         url: '../order/index?type=payment',
@@ -128,7 +128,7 @@ Page({
                     });
                 },
                 fail: function () {
-                    App.showError('订单未支付', function () {
+                    App.util.showError('订单未支付', function () {
                         // 跳转到未付款订单
                         wx.redirectTo({
                             url: '../order/index?type=payment',

@@ -43,7 +43,7 @@ Page({
 
         // 表单验证
         if (!_this.validation(values)) {
-            App.showError(_this.data.error);
+            App.util.showError(_this.data.error);
             return false;
         }
 
@@ -55,7 +55,7 @@ Page({
         // 提交到后端
         values.address_id = _this.data.detail.address_id;
         App._post_form('address/edit', values, function (result) {
-            App.showSuccess(result.msg, function () {
+            App.util.showSuccess(result.msg, function () {
                 wx.navigateBack();
             });
         }, false, function () {
