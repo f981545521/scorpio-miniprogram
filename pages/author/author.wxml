@@ -8,6 +8,9 @@
         <text>获得你的公开信息(昵称，头像等)</text>
     </view>
 
+    <button class='bottom' type='primary' open-type="getPhoneNumber" lang="zh_CN" bindgetphonenumber="getPhoneNumber">
+        授权登录（手机号）
+    </button>
     <button class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="getuserAuthority">
         授权登录
     </button>

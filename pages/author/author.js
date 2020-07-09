@@ -29,6 +29,17 @@ Page({
      */
     onShow: function () {
     },
+    getPhoneNumber: function(e){
+        console.log(e.detail.errMsg)
+        console.log(e.detail.iv)
+        console.log(e.detail.encryptedData)
+        var _this = this;
+        wx.login({
+            success: res => {
+                console.log(res)
+            }
+        })
+    },
 
     getuserAuthority: function (e) {
         if (e.detail.userInfo) {
