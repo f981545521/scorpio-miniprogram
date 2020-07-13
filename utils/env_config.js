@@ -3,7 +3,7 @@
 var active = 'dev';
 var env_config = {
     dev: {
-        networkUrl: 'http://127.0.0.1:7074'
+        networkUrl: 'http://192.168.1.8:8034'
     },
     prod: {
         networkUrl: 'http://gateway.mransoft.com'

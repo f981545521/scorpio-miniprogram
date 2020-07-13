@@ -95,7 +95,7 @@ Page({
     onShareAppMessage: function () {
         return {
             title: "小程序标题",
-            imageUrl: "http://q8nvap5f2.bkt.clouddn.com/product/TB2bi0Ub_SPY1J.jpg",
+            imageUrl: "http://qiniu.acyou.cn/product/TB2bi0Ub_SPY1J.jpg",
             path: "/pages/category/index"
         };
     },
@@ -110,6 +110,20 @@ Page({
                 console.log(res);
             }
         });
+    },
+    cookieTest: function (){
+        var _this = this;
+        var requestHandler = {
+            url: "/student/cookieTest",
+            params: {},
+            success: function (resData) {
+                console.log(resData)
+            },
+            fail: function () {
+                console.log("调用失败")
+            }
+        };
+        App.network.POST(requestHandler)
     },
     inputCall: function (e) {
         /**

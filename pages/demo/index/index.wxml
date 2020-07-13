@@ -35,7 +35,7 @@
     </view>
 </view>
 <!--<view class="padding-lr bg-white margin-top">
-    <audio poster="http://q8nvap5f2.bkt.clouddn.com//album/%E7%8E%8B%E7%90%AA.jpg" name="为你放弃全世界" author="王琪" src="http://q8o7chb0h.bkt.clouddn.com/%E4%B8%BA%E4%BD%A0%E6%94%BE%E5%BC%83%E5%85%A8%E4%B8%96%E7%95%8C.mp3" id="myAudio" controls loop></audio>
+    <audio poster="http://qiniu.acyou.cn//album/%E7%8E%8B%E7%90%AA.jpg" name="为你放弃全世界" author="王琪" src="http://q8o7chb0h.bkt.clouddn.com/%E4%B8%BA%E4%BD%A0%E6%94%BE%E5%BC%83%E5%85%A8%E4%B8%96%E7%95%8C.mp3" id="myAudio" controls loop></audio>
 </view>-->
 
 <view class="cu-bar bg-white solid-bottom margin-top">
@@ -49,6 +49,12 @@
         <view class="content">
             <text class="cuIcon-location text-grey"></text>
             <text class="text-grey">定位</text>
+        </view>
+    </view>
+    <view class="cu-item arrow" bindtap="cookieTest">
+        <view class="content">
+            <text class="cuIcon-location text-grey"></text>
+            <text class="text-grey">cookie测试</text>
         </view>
     </view>
     <view class="cu-item arrow">

@@ -22,40 +22,40 @@ Page({
                 data: [
                     {
                         linkUrl: "",
-                        imgUrl: "http://q8nvap5f2.bkt.clouddn.com/TB1MDHfBhD10.jpg"
+                        imgUrl: "http://qiniu.acyou.cn/TB1MDHfBhD10.jpg"
                     },
                     {
                         linkUrl: "",
-                        imgUrl: "http://q8nvap5f2.bkt.clouddn.com/TB1MDHfBhD10.jpg"
+                        imgUrl: "http://qiniu.acyou.cn/TB1MDHfBhD10.jpg"
                     },
                     {
                         linkUrl: "",
-                        imgUrl: "http://q8nvap5f2.bkt.clouddn.com/TB1MDHfBhD10.jpg"
+                        imgUrl: "http://qiniu.acyou.cn/TB1MDHfBhD10.jpg"
                     }
                 ]
             }],
         newest: [{
             goods_id: 1,
-            image: [{file_path: "http://q8nvap5f2.bkt.clouddn.com/product/TB2SfeAkwKTBuNkSne1XXaJo.jpg"}],
+            image: [{file_path: "http://qiniu.acyou.cn/product/TB2SfeAkwKTBuNkSne1XXaJo.jpg"}],
             goods_name: "休息休息",
             spec: [{goods_price: 233}]
         }],
         best: [
             {
                 goods_id: 1,
-                image: [{file_path: "http://q8nvap5f2.bkt.clouddn.com/product/TB2bi0Ub_SPY1J.jpg"}],
+                image: [{file_path: "http://qiniu.acyou.cn/product/TB2bi0Ub_SPY1J.jpg"}],
                 goods_name: "休息休息",
                 spec: [{goods_price: 233}]
             },
             {
                 goods_id: 1,
-                image: [{file_path: "http://q8nvap5f2.bkt.clouddn.com/product/TB2bi0Ub_SPY1J.jpg"}],
+                image: [{file_path: "http://qiniu.acyou.cn/product/TB2bi0Ub_SPY1J.jpg"}],
                 goods_name: "休息休息",
                 spec: [{goods_price: 233}]
             },
             {
                 goods_id: 1,
-                image: [{file_path: "http://q8nvap5f2.bkt.clouddn.com/product/TB2SfeAkwKTBuNkSne1XXaJo.jpg"}],
+                image: [{file_path: "http://qiniu.acyou.cn/product/TB2SfeAkwKTBuNkSne1XXaJo.jpg"}],
                 goods_name: "休息休息",
                 spec: [{goods_price: 233}]
             }
