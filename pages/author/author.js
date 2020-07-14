@@ -30,6 +30,18 @@ Page({
     onShow: function () {
     },
     getPhoneNumber: function(e){
+        wx.getUserInfo({
+            success: function(res) {
+              var userInfo = res.userInfo
+              var nickName = userInfo.nickName
+              var avatarUrl = userInfo.avatarUrl
+              var gender = userInfo.gender //性别 0：未知、1：男、2：女
+              var province = userInfo.province
+              var city = userInfo.city
+              var country = userInfo.country
+            }
+          })
+          
         console.log(e.detail.errMsg)
         console.log(e.detail.iv)
         console.log(e.detail.encryptedData)
@@ -42,6 +54,14 @@ Page({
     },
 
     getuserAuthority: function (e) {
+        console.log(e.detail.errMsg)
+        console.log(e.detail.iv)
+        console.log(e.detail.encryptedData)
+        wx.login({
+            success: res => {
+                console.log(res)
+            }
+        })
         if (e.detail.userInfo) {
             var _this = this
             let _info = e.detail;
@@ -53,7 +73,7 @@ Page({
                 iv: _info.iv
             }
             wx.setStorageSync("userInfo", e.detail.userInfo)
-            this.getUserAuth(param)
+            //this.getUserAuth(param)
 
             //授权成功后，返回到上一页
             // wx.navigateBack({

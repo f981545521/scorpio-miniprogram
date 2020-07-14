@@ -125,6 +125,41 @@ Page({
         };
         App.network.POST(requestHandler)
     },
+    optionsTest: function (){
+        var _this = this;
+        var requestHandler = {
+            url: "/student/cookieTest",
+            params: {},
+            success: function (resData) {
+                console.log(resData)
+            },
+            fail: function () {
+                console.log("调用失败")
+            }
+        };
+        App.network.POST(requestHandler)
+    },
+    loginInTest: function (){
+
+        var requestHandler = {
+            url: "/user/login",
+            params: {
+                "identityCodeReq": {
+                    "identityCode": "1112"
+                },
+                "loginType": 2
+            },
+            success: function (resData) {
+                console.log(resData)
+            },
+            fail: function () {
+                console.log("调用失败")
+            },
+
+        };
+        App.network.POST(requestHandler)
+
+    },
     inputCall: function (e) {
         /**
          * dataset 是写在标签上的值。data-no="110"

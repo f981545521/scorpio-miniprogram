@@ -51,10 +51,22 @@
             <text class="text-grey">定位</text>
         </view>
     </view>
+    <view class="cu-item arrow" bindtap="loginInTest">
+        <view class="content">
+            <text class="cuIcon-location text-grey"></text>
+            <text class="text-grey">登录测试</text>
+        </view>
+    </view>
     <view class="cu-item arrow" bindtap="cookieTest">
         <view class="content">
             <text class="cuIcon-location text-grey"></text>
             <text class="text-grey">cookie测试</text>
+        </view>
+    </view>
+    <view class="cu-item arrow" bindtap="optionsTest">
+        <view class="content">
+            <text class="cuIcon-location text-grey"></text>
+            <text class="text-grey">options 测试</text>
         </view>
     </view>
     <view class="cu-item arrow">
